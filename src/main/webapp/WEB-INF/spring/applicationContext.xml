@@ -8,7 +8,7 @@
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
-	<jpa:repositories base-package="com.emc.iig.webtest.domain.dao"
+	<jpa:repositories base-package="com.easys.webtest.domain.dao"
 		repository-impl-postfix="Impl" entity-manager-factory-ref="entityManagerFactory"
 		transaction-manager-ref="transactionManager" />
 
