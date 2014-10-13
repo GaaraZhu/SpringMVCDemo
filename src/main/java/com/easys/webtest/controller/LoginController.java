@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.easys.webtest.controller.dto.LoginInfo;
+import com.easys.webtest.controller.dto.LoginDTO;
 import com.easys.webtest.domain.entity.User;
 import com.easys.webtest.service.UserService;
 
@@ -22,7 +22,7 @@ public class LoginController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView login2(HttpServletRequest request,
-			HttpServletResponse response, LoginInfo loginInfo) {
+			HttpServletResponse response, LoginDTO loginInfo) {
 		User user = getUserService().login(loginInfo.getUsername(),
 				loginInfo.getPassword());
 

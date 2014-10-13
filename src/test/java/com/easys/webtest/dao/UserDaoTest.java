@@ -22,8 +22,8 @@ public class UserDaoTest {
 
 	@Test
 	public void createUser() {
-		User user = new User("gaara", "26", "123");
-		getUserDao().save(user);
+//		User user = new User("gaara", "26", "123");
+//		getUserDao().save(user);
 	}
 
 	public UserDao getUserDao() {
