@@ -46,11 +46,10 @@ public class User implements Serializable {
 	public User() {
 	}
 
-	public User(String name, String age, String password, Set<Role> roles) {
+	public User(String name, String age, String password) {
 		super();
 		this.name = name;
 		this.age = age;
-		this.roles = roles;
 		this.password = password;
 	}
 
@@ -92,6 +91,13 @@ public class User implements Serializable {
 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+
+	public void addRole(Role role) {
+		if (!this.roles.contains(role)) {
+			this.roles.add(role);
+//			role.getUsers().add(this);
+		}
 	}
 
 }

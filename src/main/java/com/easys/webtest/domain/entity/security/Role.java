@@ -10,8 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -37,19 +38,17 @@ public class Role implements java.io.Serializable {
 	@ManyToMany(mappedBy = "roles")
 	private Set<User> users = new HashSet<User>();
 
-	@OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToMany(cascade = { CascadeType.PERSIST }, fetch = FetchType.LAZY)
+	@JoinTable(name = "TEST_SPRING_ROLE_RESOURCE", joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "resource_id", referencedColumnName = "id"))
 	private Set<Resource> resources = new HashSet<Resource>();
 
 	public Role() {
 	}
 
-	public Role(Integer enable, String name, Set<User> users,
-			Set<Resource> resources) {
+	public Role(Integer enable, String name) {
 		super();
 		this.enable = enable;
 		this.name = name;
-		this.users = users;
-		this.resources = resources;
 	}
 
 	public Integer getId() {
@@ -90,6 +89,14 @@ public class Role implements java.io.Serializable {
 
 	public void setResources(Set<Resource> resources) {
 		this.resources = resources;
+	}
+
+	public void addResource(Resource resource) {
+		if (!this.resources.contains(resource)) {
+			this.resources.add(resource);
+//			resource.getRoles().add(this);
+		}
+
 	}
 
 }

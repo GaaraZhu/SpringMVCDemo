@@ -3,11 +3,8 @@ package com.easys.webtest.service.security.impl;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
@@ -25,6 +22,7 @@ public class SecurityMetadataSourceImpl implements
 
 	@Autowired
 	private ResourceDao resourceDao;
+	
 	private static Map<String, Collection<ConfigAttribute>> resourceMap = null;
 
 	public ResourceDao getResourceDao() {
@@ -56,10 +54,10 @@ public class SecurityMetadataSourceImpl implements
 			}
 		}
 
-		Set<Entry<String, Collection<ConfigAttribute>>> resourceSet = resourceMap
-				.entrySet();
-		Iterator<Entry<String, Collection<ConfigAttribute>>> iterator = resourceSet
-				.iterator();
+//		Set<Entry<String, Collection<ConfigAttribute>>> resourceSet = resourceMap
+//				.entrySet();
+//		Iterator<Entry<String, Collection<ConfigAttribute>>> iterator = resourceSet
+//				.iterator();
 
 	}
 

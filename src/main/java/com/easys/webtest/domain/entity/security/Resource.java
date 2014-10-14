@@ -1,14 +1,15 @@
 package com.easys.webtest.domain.entity.security;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -38,21 +39,20 @@ public class Resource implements Serializable {
 	@Column(name = "memo")
 	private String memo;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Role role;
+	@ManyToMany(mappedBy = "resources")
+	private Set<Role> roles = new HashSet<Role>();
 
 	public Resource() {
 	}
 
 	public Resource(String url, Integer priority, Integer type, String name,
-			String memo, Role role) {
+			String memo) {
 		super();
 		this.url = url;
 		this.priority = priority;
 		this.type = type;
 		this.name = name;
 		this.memo = memo;
-		this.role = role;
 	}
 
 	public Long getId() {
@@ -103,12 +103,16 @@ public class Resource implements Serializable {
 		this.memo = memo;
 	}
 
-	public Role getRole() {
-		return role;
+	public Set<Role> getRoles() {
+		return roles;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }
