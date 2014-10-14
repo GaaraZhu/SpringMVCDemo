@@ -41,7 +41,7 @@ public class Resource implements Serializable {
 
 	@ManyToMany(mappedBy = "resources")
 	private Set<Role> roles = new HashSet<Role>();
-
+ 
 	public Resource() {
 	}
 
