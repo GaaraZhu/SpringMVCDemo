@@ -25,7 +25,7 @@ public class VisitRecord implements Serializable {
 	private String time;
 
 	@Column(name = "visitorName")
-	private String visitorName;
+	private String visitorName; 
 
 	@Column(name = "notes")
 	private String notes;

@@ -47,7 +47,7 @@ public class Resource implements Serializable {
 
 	public Resource(String url, Integer priority, Integer type, String name,
 			String memo) {
-		super();
+		super(); 
 		this.url = url;
 		this.priority = priority;
 		this.type = type;

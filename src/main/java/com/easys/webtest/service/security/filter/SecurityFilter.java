@@ -28,7 +28,7 @@ public class SecurityFilter extends AbstractSecurityInterceptor implements
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		FilterInvocation fi = new FilterInvocation(request, response, chain);
-		invoke(fi);
+		invoke(fi); 
 	}
 
 	private void invoke(FilterInvocation fi) throws IOException,

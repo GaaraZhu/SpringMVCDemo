@@ -33,7 +33,7 @@ public class Role implements java.io.Serializable {
 	private Integer enable;
 
 	@Column(name = "name")
-	private String name;
+	private String name; 
 
 	@ManyToMany(mappedBy = "roles")
 	private Set<User> users = new HashSet<User>();
