@@ -28,13 +28,12 @@ public class SecurityFilter extends AbstractSecurityInterceptor implements
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		FilterInvocation fi = new FilterInvocation(request, response, chain);
-		invoke(fi); 
+		invoke(fi);
 	}
 
 	private void invoke(FilterInvocation fi) throws IOException,
 			ServletException {
-		InterceptorStatusToken token = null;
-		token = super.beforeInvocation(fi);
+		InterceptorStatusToken token = super.beforeInvocation(fi);
 		try {
 			fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
 		} finally {

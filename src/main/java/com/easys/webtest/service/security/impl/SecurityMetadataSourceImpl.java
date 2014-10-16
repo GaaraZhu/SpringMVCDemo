@@ -12,6 +12,8 @@ import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 import org.springframework.stereotype.Component;
+import org.springframework.util.AntPathMatcher;
+import org.springframework.util.PathMatcher;
 
 import com.easys.webtest.domain.dao.security.ResourceDao;
 import com.easys.webtest.domain.entity.security.Resource;
@@ -22,7 +24,9 @@ public class SecurityMetadataSourceImpl implements
 
 	@Autowired
 	private ResourceDao resourceDao;
-	
+
+	private PathMatcher matcher = new AntPathMatcher();
+
 	private static Map<String, Collection<ConfigAttribute>> resourceMap = null;
 
 	public ResourceDao getResourceDao() {
@@ -53,12 +57,6 @@ public class SecurityMetadataSourceImpl implements
 				resourceMap.put(resource.getUrl(), configAttributes);
 			}
 		}
-
-//		Set<Entry<String, Collection<ConfigAttribute>>> resourceSet = resourceMap
-//				.entrySet();
-//		Iterator<Entry<String, Collection<ConfigAttribute>>> iterator = resourceSet
-//				.iterator();
-
 	}
 
 	public Collection<ConfigAttribute> getAttributes(Object object)
@@ -66,10 +64,22 @@ public class SecurityMetadataSourceImpl implements
 
 		String requestUrl = ((FilterInvocation) object).getRequestUrl();
 		System.out.println("requestUrl is " + requestUrl);
+		int firstQuestionMarkIndex = requestUrl.indexOf("?");
+
+		if (firstQuestionMarkIndex != -1) {
+			requestUrl = requestUrl.substring(0, firstQuestionMarkIndex);
+		}
+
 		if (resourceMap == null) {
 			loadResourceDefine();
 		}
-		return resourceMap.get(requestUrl);
-	}
+		for (String resPattern : resourceMap.keySet()) {
+			if (matcher.match(resPattern, requestUrl)) {
+				return resourceMap.get(resPattern);
+			}
+		}
 
+		return null;
+	}
+	
 }

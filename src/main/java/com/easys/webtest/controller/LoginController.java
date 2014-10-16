@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,14 +15,14 @@ import com.easys.webtest.domain.entity.User;
 import com.easys.webtest.service.UserService;
 
 @Controller
-@RequestMapping("/login.do")
 public class LoginController {
 
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView login2(HttpServletRequest request,
+	@PreAuthorize("hasRole('role_internal')")  
+	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	public ModelAndView login(HttpServletRequest request,
 			HttpServletResponse response, LoginDTO loginInfo) {
 		User user = getUserService().login(loginInfo.getUsername(),
 				loginInfo.getPassword());
