@@ -20,5 +20,4 @@
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="SpringMVCDemo" />
 	</bean>
-
 </beans>

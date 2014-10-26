@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</h2>
 	<br>
 	<h2>
-		<a href="<%=basePath%>">Logout</a>
+		<a href="<%=basePath%>/login.jsp">Logout</a>
 	</h2>
 </body>
 </html>
