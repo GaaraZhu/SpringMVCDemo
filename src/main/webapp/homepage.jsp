@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%  
-String path = request.getContextPath();  
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";  
-%> 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,11 +15,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</h2>
 	<br>
 	<h2>
-		<a href="internal/maintainCRD.jsp">Main CRD</a>
+		<a href="internal/maintainCRD.jsp">Maintain CRD</a>
 	</h2>
 	<br>
 	<h2>
-		<a href="<%=basePath%>/login.jsp">Logout</a>
+		<a href="login.jsp">Logout</a>
 	</h2>
 </body>
 </html>

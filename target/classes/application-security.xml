@@ -6,21 +6,20 @@
 	<global-method-security pre-post-annotations="enabled" />
 
 	<http pattern="/js/**" security="none" />
-	<http pattern="/homepage.jsp" security="none" />
-	<http pattern="/timeout.jsp" security="none" />
 	<http pattern="/login.jsp" security="none" />
-
+	<http pattern="/*.html" security="none" />
 
 	<http use-expressions="true" auto-config="false"
 		entry-point-ref="authenticationProcessingFilterEntryPoint">
 		<logout />
 		<remember-me />
-		<session-management invalid-session-url="/timeout.jsp">
+		<session-management invalid-session-url="/timeout.html">
 			<concurrency-control max-sessions="10"
 				error-if-maximum-exceeded="true" />
 		</session-management>
 		<custom-filter ref="authenticationFilter" position="FORM_LOGIN_FILTER" />
 		<custom-filter ref="authorizationFilter" before="FILTER_SECURITY_INTERCEPTOR" />
+		<access-denied-handler error-page="/noPermission.html"/>  
 	</http>
 
 	<beans:bean id="authenticationFilter"
@@ -40,7 +39,7 @@
 	</beans:bean>
 	<beans:bean id="authenticationFailureHandler"
 		class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
-		<beans:property name="defaultFailureUrl" value="/login.jsp"></beans:property>
+		<beans:property name="defaultFailureUrl" value="/login.jsp?error='Invalid username or password !!!'"></beans:property>
 	</beans:bean>
 
 	<beans:bean id="authorizationFilter"
