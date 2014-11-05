@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.easys.webtest.controller.dto.LoginDTO;
-import com.easys.webtest.domain.entity.User;
+import com.easys.webtest.domain.entity.security.User;
 import com.easys.webtest.service.UserService;
 
 @Controller

@@ -5,7 +5,7 @@
 	<persistence-unit name="SpringMVCDemo"
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		<class>com.easys.webtest.domain.entity.User</class>
+		<class>com.easys.webtest.domain.entity.security.User</class>
 		<class>com.easys.webtest.domain.entity.VisitRecord</class>
 		<class>com.easys.webtest.domain.entity.security.Role</class>
 		<class>com.easys.webtest.domain.entity.security.Resource</class>

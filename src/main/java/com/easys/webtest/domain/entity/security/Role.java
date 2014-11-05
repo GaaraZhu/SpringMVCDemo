@@ -16,8 +16,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.easys.webtest.domain.entity.User;
-
 @Entity
 @Table(name = "TEST_SPRING_ROLE")
 public class Role implements java.io.Serializable {

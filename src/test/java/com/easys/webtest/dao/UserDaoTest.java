@@ -10,9 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.easys.webtest.controller.LoginController;
 import com.easys.webtest.domain.dao.UserDao;
-import com.easys.webtest.domain.entity.User;
 import com.easys.webtest.domain.entity.security.Resource;
 import com.easys.webtest.domain.entity.security.Role;
+import com.easys.webtest.domain.entity.security.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")

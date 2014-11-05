@@ -2,7 +2,7 @@ package com.easys.webtest.domain.dao;
 
 import org.springframework.data.repository.Repository;
 
-import com.easys.webtest.domain.entity.User;
+import com.easys.webtest.domain.entity.security.User;
 
 public interface UserDao extends Repository<User, Long> {
 

@@ -13,9 +13,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 import com.easys.webtest.domain.dao.UserDao;
-import com.easys.webtest.domain.entity.User;
 import com.easys.webtest.domain.entity.security.Resource;
 import com.easys.webtest.domain.entity.security.Role;
+import com.easys.webtest.domain.entity.security.User;
 
 @Component
 @SuppressWarnings("deprecation")

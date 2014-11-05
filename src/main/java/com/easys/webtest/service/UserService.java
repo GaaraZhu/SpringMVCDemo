@@ -1,6 +1,6 @@
 package com.easys.webtest.service;
 
-import com.easys.webtest.domain.entity.User;
+import com.easys.webtest.domain.entity.security.User;
 
 public interface UserService {
 

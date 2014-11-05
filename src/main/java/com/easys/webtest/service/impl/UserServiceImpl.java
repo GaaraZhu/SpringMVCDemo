@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.easys.webtest.domain.dao.UserDao;
-import com.easys.webtest.domain.entity.User;
+import com.easys.webtest.domain.entity.security.User;
 import com.easys.webtest.service.UserService;
 
 @Service

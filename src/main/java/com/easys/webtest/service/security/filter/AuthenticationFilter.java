@@ -11,7 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.easys.webtest.domain.entity.User;
+import com.easys.webtest.domain.entity.security.User;
 import com.easys.webtest.service.UserService;
 import com.easys.webtest.util.Util;
 
